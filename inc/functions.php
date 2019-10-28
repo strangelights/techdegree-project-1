@@ -2,16 +2,14 @@
 
 // PHP - Random Quote Generator
 
-// Create the Multidimensional array of quote elements and name it quotes
-// Each inner array element should be an associative array
-
+// This multidimensional array holds multiple quotes, with each broken out into an inner array containing a quote, source, citation, year, and tag
 $quotes[] = array(
     "quote" => "Do the best you can until you know better. Then when you know better, do better.",
     "source" => "attributed to Maya Angelou",
 );
 
 $quotes[] = array(
-    "quote" => "Sharing knowledge is the most fundamental act of friendship. Because it is a way you can give something without loosing something.",
+    "quote" => "Sharing knowledge is the most fundamental act of friendship. Because it is a way you can give something without losing something.",
     "source" => "Richard Stallman",
 );
 
@@ -49,22 +47,26 @@ $quotes[] = array(
     "source" => "Amelia Earhart",
 );
 
-// print_r($quotes);
-
-// Create the getRandomQuote function and name it getRandomQuote
-
+// This function generates a random number representing a key from the outer $quotes array and returns the corresponding value for the given key
 function getRandomQuote($array){  
     $key = rand(0,7);
     return $array[$key]; 
 }
 
-//debug
-while ($i<=7){
-print_r(getRandomQuote($quotes));
-$i++;
-}
-// Create the printQuote funtion and name it printQuote
+// This function calls getRandomQuote() and converts the returned array into an HTML string to be printed to the index page
+function printQuote($array){
+    $randomQuote = getRandomQuote($array);
+    $quoteString = "";
+    $quoteString .= '<p class="quote">'. $randomQuote['quote'] . '</p>';
+    $quoteString .= '<p class="source">' . $randomQuote['source'];
+    if (isset($randomQuote['citation']) == true){
+        $quoteString .= '<span class="citation">' . $randomQuote['citation'] . '</span>';
+    }
+    if (isset($randomQuote['year']) == true){
+        $quoteString .= '<span class="year">' . $randomQuote['year'] . '</span>';
+    }
+    $quoteString .= '</p>';
+    echo $quoteString;
+}  
 
-function printQuote(){
-    
-}
+?>
