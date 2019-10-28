@@ -1,7 +1,7 @@
 /* Random Quote Generator Styles */
 
 body {
-  background-color: #36b55c;
+  /* background-color: #36b55c; */
   color: white;
   font-family: 'Playfair Display', serif;
 }
@@ -43,7 +43,7 @@ body {
 }
 
 .source {
-  font-size: 1.25rem;;
+  font-size: 1.25rem;
   letter-spacing: 0.05em;
   line-height: 1.1;
   text-align: right;
@@ -68,6 +68,17 @@ body {
   font-style: normal;
 }
 
+.tag{
+    font-size: .8rem;
+    font-style: normal;
+}
+.tag:before {
+  content: " ["; 
+}
+.tag:after {
+  content: "]"; 
+}
+
 #loadQuote {
   position: fixed;
   width: 12em;
@@ -78,7 +89,7 @@ body {
   border-radius: 4px;
   border: 2px solid #fff;
   color: #fff;
-  background-color: #36b55c;
+  background-color: transparent;
   padding: 15px 0;
   transition: .5s ;
 }
@@ -90,12 +101,24 @@ body {
   outline: none;
 }
 
-@media (max-width: 420px) {
+@media(max-width: 900px){
   .quote {
-    font-size: 2.5rem;
+    font-size: 3rem;
+  }
+  .quote:before, .quote:after {
+    font-size: 4.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .quote {
+    font-size: 2rem;
   }
   .quote:before, .quote:after {
     font-size: 3rem;
+  }
+  .quote:before{
+    top: .1em;
   }
   .source {
     font-size: 1rem;
