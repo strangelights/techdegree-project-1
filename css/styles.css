@@ -68,9 +68,9 @@ body {
   font-style: normal;
 }
 
-.tag{
-    font-size: .8rem;
-    font-style: normal;
+.tag {
+  font-size: .8rem;
+  font-style: normal;
 }
 .tag:before {
   content: " ["; 
@@ -101,7 +101,7 @@ body {
   outline: none;
 }
 
-@media(max-width: 900px){
+@media (max-width: 900px) {
   .quote {
     font-size: 3rem;
   }
