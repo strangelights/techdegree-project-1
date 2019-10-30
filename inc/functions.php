@@ -57,8 +57,8 @@ $quotes[] = array(
 
 // This function generates a random number representing a key from the outer $quotes array and returns the corresponding value for the given key
 function getRandomQuote($array){  
-    $key = rand(0,7);
-    return $array[$key]; 
+    $randomKey = array_rand($array);
+    return $array[$randomKey]; 
 }
 
 // This function calls getRandomQuote() and converts the returned array into an HTML string to be printed to the index page
@@ -67,17 +67,24 @@ function printQuote($array){
     $quoteString = "";
     $quoteString .= '<p class="quote">'. $randomQuote['quote'] . '</p>';
     $quoteString .= '<p class="source">' . $randomQuote['source'];
-    if (isset($randomQuote['tag']) == true){
+    if (isset($randomQuote['tag'])){
         $quoteString .= '<span class="tag">' . $randomQuote['tag'] . '</span>';
     }
-    if (isset($randomQuote['citation']) == true){
+    if (isset($randomQuote['citation'])){
         $quoteString .= '<span class="citation">' . $randomQuote['citation'] . '</span>';
     }
-    if (isset($randomQuote['year']) == true){
+    if (isset($randomQuote['year'])){
         $quoteString .= '<span class="year">' . $randomQuote['year'] . '</span>';
     }
     $quoteString .= '</p>';
     echo $quoteString;
 }  
+
+function randomBackgroundColor(){
+    $r = rand(0,255);
+    $g = rand(0,255);
+    $b = rand(0,255);
+    return "rgb($r, $g, $b)";
+}
 
 ?>
