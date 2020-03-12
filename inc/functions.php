@@ -1,6 +1,6 @@
 <?php
 
-// PHP - Random Quote Generator
+// PHP - Random Quote Generator 
 
 // This multidimensional array holds multiple quotes, with each broken out into an inner array containing a quote, source, citation, year, and tag
 $quotes[] = array(
